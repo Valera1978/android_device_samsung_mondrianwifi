@@ -1,0 +1,2 @@
+allow system_server efs_file:dir search;
+allow system_server sysfs_input_file:file rw_file_perms;

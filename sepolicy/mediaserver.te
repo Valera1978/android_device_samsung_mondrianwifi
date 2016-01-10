@@ -1,0 +1,7 @@
+allow mediaserver firmware_file:dir r_dir_perms;
+allow mediaserver firmware_file:file r_file_perms;
+allow mediaserver shell_data_file:dir search;
+allow mediaserver socket_device:sock_file write;
+allow mediaserver system_data_file:sock_file write;
+allow mediaserver system_prop:property_service set;
+allow mediaserver thermal-engine:unix_stream_socket connectto;

@@ -1,0 +1,7 @@
+/firmware/(.*)                    u:object_r:firmware_file:s0
+/firmware-modem/(.*)              u:object_r:firmware_file:s0
+
+/dev/block/mmcblk0p(.*)           u:object_r:mmc_block_device:s0
+/dev/block/mmcblk1p(.*)           u:object_r:mmc_block_device:s0
+
+/sys/devices/virtual/sec/sec_touchkey/tsp_keys_enabled u:object_r:sysfs_input_file:s0

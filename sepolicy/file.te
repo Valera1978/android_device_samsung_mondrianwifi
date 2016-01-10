@@ -1,0 +1,1 @@
+type sysfs_input_file, fs_type, sysfs_type;
