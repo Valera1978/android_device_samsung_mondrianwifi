@@ -29,15 +29,15 @@ int CameraParameters::getInt64(const char *key) const { return -1; } \
  */
 
 #define CAMERA_PARAMETERS_EXTRA_H \
-static const char KEY_DIS[]; \
-static const char DIS_DISABLE[]; \
-\
-static const char KEY_ZSL[]; \
-static const char ZSL_ON[]; \
-static const char ZSL_OFF[]; \
-\
-int getInt64(const char *key) const; \
-\
-/* LAST_LINE OF CAMERA_PARAMETERS_EXTRA_H, every line before this one *MUST* have
- * a backslash \ at the end of the line or else everything will break.
- */
+    static const char KEY_DIS[]; \
+    static const char DIS_DISABLE[]; \
+    \
+    static const char KEY_ZSL[]; \
+    static const char ZSL_ON[]; \
+    static const char ZSL_OFF[]; \
+    \
+    int getInt64(const char *key) const; \
+    \
+    /* LAST_LINE OF CAMERA_PARAMETERS_EXTRA_H, every line before this one *MUST* have
+     * a backslash \ at the end of the line or else everything will break.
+     */

@@ -1,5 +1,9 @@
 [
   {
+    "repository": "android_external_sony_boringssl-compat",
+    "target_path": "external/sony/boringssl-compat"
+  },
+  {
     "repository": "android_device_samsung_msm8974-common",
     "target_path": "device/samsung/msm8974-common"
   },

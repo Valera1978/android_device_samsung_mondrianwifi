@@ -19,20 +19,24 @@ Copyright (C) 2015 Valera Chigir <valera1978@tut.by>
 
   - Make a workspace
 
-mkdir cm12
-cd cm12
+mkdir cm13
+cd cm13
 
   - Do repo init & sync
 
-repo init -u git://github.com/CyanogenMod/android.git -b cm-12.1
+repo init -u git://github.com/CyanogenMod/android.git -b cm-13.0
 
   - Create .repo/local_manifests/roomservice.xml with the following content:
 
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+  <project name="Valera1978/android_device_samsung_viennalte" path="device/samsung/viennalte" remote="github" revision="cm13.0" />
+  <project name="Valera1978/android_kernel_samsung_viennalte" path="kernel/samsung/viennalte" remote="github" revision="cm13.0" />
+  <project name="Valera1978/android_vendor_samsung_viennalte" path="vendor/samsung/viennalte" remote="github" revision="cm13.0" />
+  <project name="CyanogenMod/android_external_sony_boringssl-compat" path="external/sony/boringssl-compat" remote="github" />
   <project name="CyanogenMod/android_device_samsung_msm8974-common" path="device/samsung/msm8974-common" remote="github" />
-  <project name="CyanogenMod/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" />
   <project name="CyanogenMod/android_device_qcom_common" path="device/qcom/common" remote="github" />
+  <project name="CyanogenMod/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" />
   <project name="CyanogenMod/android_hardware_samsung" path="hardware/samsung" remote="github" />
 </manifest>
 
@@ -52,7 +56,7 @@ repo sync
 
 . build/envsetup.sh
 
-  - Build cm12
+  - Build cm13
 
 brunch viennalte
 

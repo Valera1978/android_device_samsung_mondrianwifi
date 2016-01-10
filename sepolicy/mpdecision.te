@@ -1,6 +1,7 @@
-allow mpdecision socket_device:dir { add_name write };
-allow mpdecision socket_device:sock_file { write create setattr };
-allow mpdecision system_data_file:file { open append };
-# mpdecision creates /data/system/default_values
-allow mpdecision system_data_file:dir { write add_name };
-allow mpdecision system_data_file:file create;
+type_transition mpdecision system_data_file:file mpctl_data_file;
+
+allow mpdecision socket_device:dir w_dir_perms;
+allow mpdecision socket_device:sock_file create_file_perms;
+
+# Needed to create /data/system/default_values
+allow mpdecision system_data_file:dir w_dir_perms;

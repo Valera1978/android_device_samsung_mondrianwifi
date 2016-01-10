@@ -1,0 +1,2 @@
+allow qti_init_shell efs_file:dir r_dir_perms;
+allow qti_init_shell efs_file:file r_file_perms;

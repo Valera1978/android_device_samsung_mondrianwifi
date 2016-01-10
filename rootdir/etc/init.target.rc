@@ -40,7 +40,6 @@ on fs
     write /sys/devices/msm_sdcc.3/mmc_host/mmc2/power/control on
 
     mount_all fstab.qcom
-    restorecon_recursive /persist
     setprop ro.crypto.fuse_sdcard true
 
     # Keeping following partitions outside fstab file. As user may not have
@@ -53,7 +52,8 @@ on fs
 
     wait /dev/block/platform/msm_sdcc.1/by-name/persist
     check_fs /dev/block/platform/msm_sdcc.1/by-name/persist ext4
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic
+    mount ext5 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic,context=u:object_r:persist_file:s0
+    restorecon_recursive /persist
 
     wait /dev/block/platform/msm_sdcc.1/by-name/efs
     check_fs /dev/block/platform/msm_sdcc.1/by-name/efs ext4
@@ -71,7 +71,7 @@ on fs
      setprop qcom.audio.init complete
 
 on post-fs-data
-    mkdir /data/tombstones 0771 system system
+      mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
     mkdir /tombstones/lpass 0771 system system
     mkdir /tombstones/wcnss 0771 system system
@@ -260,6 +260,7 @@ on boot
 # Permissions for Camera
    chown system radio /sys/class/camera/rear/rear_camfw
    chown system radio /sys/class/camera/rear/rear_camfw_load
+   chown system radio /sys/class/camera/rear/rear_camfw_full
    chown system radio /sys/class/camera/rear/rear_camtype
    chown system radio /sys/class/camera/flash/rear_flash
    chown system radio /sys/class/camera/front/front_camfw
@@ -511,6 +512,7 @@ service mpdecision /system/bin/mpdecision --avg_comp
 
 service thermal-engine /system/bin/thermal-engine
    class core
+   seclabel u:r:thermal-engine:s0
    user root
    group radio system
 

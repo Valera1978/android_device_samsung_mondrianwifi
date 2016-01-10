@@ -27,6 +27,8 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/viennalte/include
 
 TARGET_OTA_ASSERT_DEVICE := viennalte,viennaltexx
 
+BLOCK_BASED_OTA:= false
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 
@@ -39,7 +41,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/viennalte/mkbootimg.mk
 TARGET_KERNEL_SOURCE := kernel/samsung/viennalte
 TARGET_KERNEL_CONFIG := msm8974_sec_defconfig
-TARGET_KERNEL_VARIANT_CONFIG := msm8974_sec_viennalteeur_my_defconfig
+TARGET_KERNEL_VARIANT_CONFIG := msm8974_sec_viennalteeur_cm_defconfig
 
 # Audio
 BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
@@ -50,6 +52,7 @@ BOARD_USES_SEPERATED_AUDIO_INPUT := true
 AUDIO_FEATURE_DISABLED_MULTI_VOICE_SESSIONS := true
 AUDIO_FEATURE_DISABLED_FM := true
 AUDIO_FEATURE_DISABLED_ANC_HEADSET := true
+USE_CUSTOM_AUDIO_POLICY := 1
 
 # Camera
 TARGET_PROVIDES_CAMERA_HAL := true
@@ -103,31 +106,10 @@ TARGET_RECOVERY_FSTAB := device/samsung/viennalte/rootdir/etc/fstab.qcom
 
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/viennalte/ril
-BOARD_PROVIDES_LIBRIL := true
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += device/samsung/viennalte/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-  file_contexts \
-  file.te \
-  init.te \
-  keystore.te \
-  mediaserver.te \
-  mm-pp-daemon.te \
-  mm-qcamerad.te \
-  mpdecision.te \
-  rild.te \
-  rmt_storage.te \
-  system_app.te \
-  system_server.te \
-  tee.te \
-  thermal-engine.te \
-  time_daemon.te \
-  ueventd.te \
-  vold.te \
-  wcnss-service.te \
 
 # WiFi
 BOARD_HAVE_SAMSUNG_WIFI := true
