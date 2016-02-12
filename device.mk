@@ -59,7 +59,6 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8974 \
-    libshim_qcopt \
     libxml2
 
 # GPS
@@ -131,10 +130,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libstlport
 
-# rmt_storage
-PRODUCT_PACKAGES += \
-    libshim_rmt_storage
-
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/etc/thermal-engine-8974.conf \
@@ -149,7 +144,6 @@ PRODUCT_PACKAGES += \
     dhcpcd.conf \
     hostapd \
     hostapd_default.conf \
-    libwcnss_qmi \
     libwpa_client \
     macloader \
     wcnss_service \
