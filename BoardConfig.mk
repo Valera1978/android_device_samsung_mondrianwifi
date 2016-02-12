@@ -113,6 +113,9 @@ BOARD_RIL_CLASS := ../../../device/samsung/viennalte/ril
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += device/samsung/viennalte/sepolicy
 
+# Sensors
+TARGET_NO_SENSOR_PERMISSION_CHECK := true
+
 # WiFi
 BOARD_HAVE_SAMSUNG_WIFI := true
 BOARD_HOSTAPD_DRIVER := NL80211
