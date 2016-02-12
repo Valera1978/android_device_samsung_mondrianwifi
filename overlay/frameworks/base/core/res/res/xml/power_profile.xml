@@ -18,19 +18,25 @@
         <value>3.4</value>
     </array>
     <array name="cpu.speeds">
-        <value>12000000</value>
-        <value>10000000</value>
-        <value>800000</value>
-        <value>500000</value>
-        <value>200000</value>
+        <value>2265600</value>
+        <value>1782000</value>
+        <value>1497600</value>
+        <value>1190400</value>
+        <value>960000</value>
+        <value>729600</value>
+        <value>422400</value>
+        <value>300000</value>
     </array>
     <item name="cpu.idle">4</item>
     <array name="cpu.active">
-        <value>577</value>
-        <value>408</value>
-        <value>249</value>
-        <value>148</value>
-        <value>55</value>
+        <value>399</value>
+        <value>308</value>
+        <value>264</value>
+        <value>190</value>
+        <value>174</value>
+        <value>102</value>
+        <value>72</value>
+        <value>46</value>
     </array>
     <item name="battery.capacity">9500</item>
     <array name="wifi.batchedscan">

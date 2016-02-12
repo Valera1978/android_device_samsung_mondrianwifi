@@ -27,7 +27,7 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/viennalte/include
 
 TARGET_OTA_ASSERT_DEVICE := viennalte,viennaltexx
 
-BLOCK_BASED_OTA:= false
+#BLOCK_BASED_OTA:= false
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
@@ -42,16 +42,6 @@ BOARD_CUSTOM_BOOTIMG_MK := device/samsung/viennalte/mkbootimg.mk
 TARGET_KERNEL_SOURCE := kernel/samsung/viennalte
 TARGET_KERNEL_CONFIG := msm8974_sec_defconfig
 TARGET_KERNEL_VARIANT_CONFIG := msm8974_sec_viennalteeur_cm_defconfig
-
-# Shader cache config options
-# Maximum size of the  GLES Shaders that can be cached for reuse.
-# Increase the size if shaders of size greater than 12KB are used.
-MAX_EGL_CACHE_KEY_SIZE := 12*1024
-
-# Maximum GLES shader cache size for each app to store the compiled shader
-# binaries. Decrease the size if RAM or Flash Storage size is a limitation
-# of the device.
-MAX_EGL_CACHE_SIZE := 2048*1024
 
 # Audio
 BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
@@ -94,7 +84,9 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 13631488
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2810183680
+# eu size 2810183680
+# us size can be less, reduce system
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2700000000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 27847015936
 BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_USERIMAGES_USE_EXT4 := true
