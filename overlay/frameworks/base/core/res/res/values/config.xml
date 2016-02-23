@@ -166,38 +166,38 @@
 <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
         <item>0</item>
-        <item>31</item>
-        <item>50</item>
-        <item>51</item>
+        <item>1</item>
+        <item>20</item>
+        <item>21</item>
     </integer-array>
 
     <!-- Vibrator pattern for feedback about touching a virtual key -->
     <integer-array name="config_virtualKeyVibePattern">
         <item>0</item>
-        <item>40</item>
-        <item>50</item>
-        <item>60</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
     </integer-array>
 
     <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
     <integer-array name="config_keyboardTapVibePattern">
-        <item>50</item>
+        <item>10</item>
     </integer-array>
 
     <!-- Vibrator pattern for feedback about booting with safe mode disabled -->
     <integer-array name="config_safeModeDisabledVibePattern">
         <item>0</item>
-        <item>31</item>
-        <item>50</item>
-        <item>51</item>
+        <item>1</item>
+        <item>20</item>
+        <item>21</item>
     </integer-array>
 
     <!-- Vibrator pattern for feedback about booting with safe mode disabled -->
     <integer-array name="config_safeModeEnabledVibePattern">
         <item>0</item>
-        <item>31</item>
-        <item>50</item>
-        <item>51</item>
+        <item>1</item>
+        <item>20</item>
+        <item>21</item>
         <item>500</item>
         <item>600</item>
     </integer-array>
@@ -205,9 +205,9 @@
     <!-- Vibrator pattern for feedback about hitting a scroll barrier -->
     <integer-array name="config_scrollBarrierVibePattern">
         <item>0</item>
-        <item>45</item>
-        <item>40</item>
-        <item>40</item>
+        <item>15</item>
+        <item>10</item>
+        <item>10</item>
     </integer-array>
 
     <!-- Hide this setting because we are forcing it to be enabled in build.prop.
@@ -266,25 +266,19 @@
     <string name="config_wifi_tcp_buffers" translatable="false">524288,2097152,4194304,262144,524288,1048576</string>
 
     <string-array name="config_mobile_tcp_buffers">
-        <item>"lte:2097152,4194304,8388608,262144,524288,1048576"</item>
-        <item>"lte_ca:2097152,4194304,8388608,262144,524288,1048576"</item>
-        <item>"umts:4094,87380,1220608,4096,16384,1220608"</item>
-        <item>"hspa:4094,87380,1220608,4096,16384,1220608"</item>
-        <item>"hsupa:4094,87380,1220608,4096,16384,1220608"</item>
-        <item>"hsdpa:4094,87380,2441216,4096,16384,2441216"</item>
-        <item>"hspap:4094,87380,1220608,4096,16384,1220608"</item>
-        <item>"edge:4093,26280,35040,4096,16384,35040"</item>
-        <item>"gprs:4092,8760,11680,4096,8760,11680"</item>
-        <item>"evdo:4094,87380,1048576,4096,16384,262144"</item>
-        <item>"ehrpd:4094,87380,1048576,4096,16384,262144"</item>
+        <item>umts:4094,87380,110208,4096,16384,110208</item>
+        <item>hspa:4094,87380,1220608,4096,16384,1220608</item>
+        <item>hsupa:4094,87380,1220608,4096,16384,1220608</item>
+        <item>hsdpa:4094,87380,1220608,4096,16384,1220608</item>
+        <item>hspap:4094,87380,1220608,4096,16384,1220608</item>
+        <item>edge:4093,26280,35040,4096,16384,35040</item>
+        <item>gprs:4092,8760,11680,4096,8760,11680</item>
+        <item>evdo:4094,87380,262144,4096,16384,262144</item>
+        <item>lte:524288,1048576,2097152,262144,524288,1048576</item>
     </string-array>
 
     <!-- Boolean to enable stylus gestures -->
     <bool name="config_stylusGestures">true</bool>
-
-    <!-- Base "touch slop" value used by ViewConfiguration as a
-         movement threshold where scrolling should begin. -->
-    <dimen name="config_viewConfigurationTouchSlop">19dip</dimen>
 
     <!-- The RadioAccessFamilies supported by the device.
          Empty is viewed as "all".  Only used on devices which

@@ -44,15 +44,10 @@ TARGET_KERNEL_CONFIG := msm8974_sec_defconfig
 TARGET_KERNEL_VARIANT_CONFIG := msm8974_sec_viennalteeur_cm_defconfig
 
 # Audio
-BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
-BOARD_HAVE_SAMSUNG_AUDIO := true
-BOARD_USES_FLUENCE_INCALL := true
-BOARD_USES_FLUENCE_FOR_VOIP := true
-BOARD_USES_SEPERATED_AUDIO_INPUT := true
-AUDIO_FEATURE_DISABLED_MULTI_VOICE_SESSIONS := true
-AUDIO_FEATURE_DISABLED_FM := true
-AUDIO_FEATURE_DISABLED_ANC_HEADSET := true
-USE_CUSTOM_AUDIO_POLICY := 1
+QCOM_CSDCLIENT_ENABLED := false
+AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
+AUDIO_FEATURE_ENABLED_HWDEP_CAL := true
+AUDIO_FEATURE_ENABLED_LOW_LATENCY_CAPTURE := true
 
 # Camera
 TARGET_PROVIDES_CAMERA_HAL := true
@@ -61,13 +56,8 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # Charger
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
-# GPS
-TARGET_NO_RPC := true
-TARGET_GPS_HAL_PATH := device/samsung/viennalte/gps
-
 # Graphics
 TARGET_HAVE_NEW_GRALLOC := true
-BOARD_USES_LEGACY_MMAP := true
 
 # Hardware
 BOARD_HARDWARE_CLASS += device/samsung/viennalte/cmhw
@@ -80,6 +70,9 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/viennalte/bluetoot
 BOARD_BLUEDROID_VENDOR_CONF := device/samsung/viennalte/bluetooth/vnd_viennalte.txt
 BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 BOARD_HAVE_BLUETOOTH_BCM := true
+
+# ANT+
+BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
@@ -129,3 +122,5 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_DRIVER_FW_PATH_AP      := "/system/etc/wifi/bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA     := "/system/etc/wifi/bcmdhd_sta.bin"
+WIFI_DRIVER_MODULE_ARG      := "firmware_path=/system/etc/wifi/bcmdhd_sta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
+WIFI_DRIVER_MODULE_AP_ARG   := "firmware_path=/system/etc/wifi/bcmdhd_apsta.bin nvram_path=/system/etc/wifi/nvram_net.txt"

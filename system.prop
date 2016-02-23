@@ -1,3 +1,18 @@
+#audio
+persist.audio.fluence.speaker=true
+persist.audio.fluence.voicecall=true
+persist.audio.fluence.voicerec=false
+ro.qc.sdk.audio.fluencetype=fluence
+mm.enable.smoothstreaming=true
+av.streaming.offload.enable=true
+use.voice.path.for.pcm.voip=true
+audio.offload.multiple.enabled=true
+audio.offload.gapless.enabled=true
+tunnel.audio.encode=true
+media.aac_51_output_enabled=true
+audio.offload.pcm.16bit.enable=true
+audio.offload.pcm.24bit.enable=true
+
 # display
 lockscreen.rot_override=true
 ro.hdcp2.rx=tz
@@ -29,3 +44,6 @@ ro.telephony.ril_class=TabproLteRIL
 # CWMR Options
 ro.cwm.forbid_format=/boot,/firmware,/firmware-modem
 ro.cwm.forbid_mount=/boot
+
+# perf api
+ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
