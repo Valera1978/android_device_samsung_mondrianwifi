@@ -20,4 +20,6 @@
 
 #define BTM_DEF_LOCAL_NAME   "Samsung Galaxy Note Pro 12.2"
 
+#define BTM_WBS_INCLUDED TRUE
+
 #endif

@@ -155,6 +155,11 @@ PRODUCT_PACKAGES += \
     wcnss_service \
     wpa_supplicant
 
+# IPv6 tethering
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes
+
 # Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
 TARGET_SCREEN_WIDTH := 2560
