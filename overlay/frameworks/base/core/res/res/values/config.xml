@@ -27,9 +27,6 @@
          rotations as the default behavior. -->
     <bool name="config_allowAllRotations">true</bool>
 
-    <!-- Default color for notification LED is white. -->
-    <color name="config_defaultNotificationColor">#ffffffff</color>
-
     <!-- Default value for led color when battery is medium charged -->
     <!-- The green LED is brighter than red, bias closer to yellow. -->
     <integer name="config_notificationsBatteryMediumARGB">0xFFFF6000</integer>
@@ -153,9 +150,6 @@
     <!-- Boolean indicating whether the wifi chipset has background scan support -->
     <bool translatable="false" name="config_wifi_background_scan_support">false</bool>
 
-    <!-- Enables or disables fading edges when marquee is enabled in TextView. -->
-    <bool name="config_ui_enableFadingMarquee">false</bool>
-
     <!-- The VoiceMail default value is displayed to my own number if it is true -->
     <bool name="config_telephony_use_own_number_for_voicemail">true</bool>
 
@@ -278,12 +272,15 @@
     </string-array>
 
     <!-- Boolean to enable stylus gestures -->
-    <bool name="config_stylusGestures">true</bool>
+<!--    <bool name="config_stylusGestures">true</bool> -->
 
     <!-- The RadioAccessFamilies supported by the device.
          Empty is viewed as "all".  Only used on devices which
          don't support RIL_REQUEST_GET_RADIO_CAPABILITY
          format is UMTS|LTE|... -->
     <string translatable="false" name="config_radio_access_family">GSM|WCDMA|LTE</string>
+
+<!-- Indicate whether the SD card is accessible without removing the battery. -->
+    <bool name="config_batterySdCardAccessibility">true</bool>
 
 </resources>
