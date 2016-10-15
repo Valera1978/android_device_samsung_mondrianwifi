@@ -31,6 +31,7 @@ av.streaming.offload.enable=true
 audio.offload.gapless.enabled=true
 audio.offload.pcm.16bit.enable=true
 audio.offload.pcm.24bit.enable=true
+media.stagefright.legacyencoder=true
 
 # radio
 persist.radio.add_power_save=1
