@@ -47,3 +47,6 @@ ro.cwm.forbid_mount=/boot
 
 # perf api
 ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
+
+# Bluetooth
+qcom.bluetooth.soc=rome
