@@ -29,6 +29,9 @@ TARGET_OTA_ASSERT_DEVICE := viennalte,viennaltexx
 
 #BLOCK_BASED_OTA:= false
 
+# Use Snapdragon LLVM if available on build server
+TARGET_USE_SDCLANG := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 
@@ -44,34 +47,35 @@ TARGET_KERNEL_CONFIG := msm8974_sec_defconfig
 TARGET_KERNEL_VARIANT_CONFIG := msm8974_sec_viennalteeur_cm_defconfig
 
 # Audio
-QCOM_CSDCLIENT_ENABLED := false
-AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
-AUDIO_FEATURE_ENABLED_HWDEP_CAL := true
-AUDIO_FEATURE_ENABLED_LOW_LATENCY_CAPTURE := true
-
-# Camera
-TARGET_PROVIDES_CAMERA_HAL := true
-USE_DEVICE_SPECIFIC_CAMERA := true
-TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
-
-# Charger
-BOARD_CHARGER_SHOW_PERCENTAGE := true
-
-# Graphics
-TARGET_HAVE_NEW_GRALLOC := true
-
-# Hardware
-BOARD_HARDWARE_CLASS += device/samsung/viennalte/cmhw
-
-# Lights
-TARGET_PROVIDES_LIBLIGHT := true
+BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
+USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/viennalte/bluetooth
 BOARD_CUSTOM_BT_CONFIG := device/samsung/viennalte/bluetooth/vnd_viennalte.txt
 BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 BOARD_HAVE_BLUETOOTH_BCM := true
+
+# Camera
+TARGET_PROVIDES_CAMERA_HAL := true
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+USE_DEVICE_SPECIFIC_CAMERA := true
+
+# Charger
+BOARD_CHARGER_SHOW_PERCENTAGE := true
+
+# Hardware
+BOARD_HARDWARE_CLASS += device/samsung/viennalte/cmhw
+
+# Display
+SF_VSYNC_EVENT_PHASE_OFFSET_NS := 5000000
+VSYNC_EVENT_PHASE_OFFSET_NS := 7500000
+
+# Legacy BLOB Support
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -92,6 +96,9 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_POWERHAL_VARIANT := qcom
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/samsung/viennalte/power/power_ext.c
 
+# RIL
+BOARD_RIL_CLASS := ../../../device/samsung/viennalte/ril
+
 # Recovery
 # COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -101,9 +108,6 @@ BOARD_RECOVERY_SWIPE := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 BOARD_USES_MMCUTILS := true
 TARGET_RECOVERY_FSTAB := device/samsung/viennalte/rootdir/etc/fstab.qcom
-
-# RIL
-BOARD_RIL_CLASS := ../../../device/samsung/viennalte/ril
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
@@ -126,3 +130,6 @@ WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA     := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_MODULE_ARG      := "firmware_path=/system/etc/wifi/bcmdhd_sta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
 WIFI_DRIVER_MODULE_AP_ARG   := "firmware_path=/system/etc/wifi/bcmdhd_apsta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
+
+WIFI_DRIVER_NVRAM_PATH_PARAM:= "/sys/module/dhd/parameters/nvram_path"
+WIFI_DRIVER_NVRAM_PATH      := "/system/etc/wifi/nvram_net.txt"
