@@ -1,17 +1,6 @@
-#audio
-persist.audio.fluence.speaker=true
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=false
-ro.qc.sdk.audio.fluencetype=fluence
-mm.enable.smoothstreaming=true
-av.streaming.offload.enable=true
-use.voice.path.for.pcm.voip=true
-audio.offload.multiple.enabled=true
-audio.offload.gapless.enabled=true
-tunnel.audio.encode=true
-media.aac_51_output_enabled=true
-audio.offload.pcm.16bit.enable=true
-audio.offload.pcm.24bit.enable=true
+#
+# Samsung Galaxy Note Pro 12.2
+#
 
 # display
 lockscreen.rot_override=true
@@ -25,6 +14,9 @@ persist.gps.qc_nlp_in_use=0
 ro.gps.agps_provider=1
 ro.qc.sdk.izat.premium_enabled=0
 ro.qc.sdk.izat.service_mask=0x0
+
+# Camera
+camera2.portability.force_api=1
 
 # Media
 av.streaming.offload.enable=true

@@ -21,6 +21,8 @@
 # lines, full and viennalte, hence its name.
 #
  
+# Inherit from viennalte device
+$(call inherit-product, device/samsung/viennalte/device.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
@@ -28,9 +30,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := viennalte
 PRODUCT_DEVICE := viennalte
+PRODUCT_MODEL := Samsung Galaxy Note Pro 12.2 SM-P905
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := SM-P905
 
-$(call inherit-product, device/samsung/viennalte/device.mk)
-$(call inherit-product-if-exists, vendor/samsung/viennalte/viennalte-vendor.mk)
