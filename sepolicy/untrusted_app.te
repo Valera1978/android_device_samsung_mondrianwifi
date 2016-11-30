@@ -1,0 +1,12 @@
+allow untrusted_app fuseblk:dir read;
+allow untrusted_app fuseblk:dir { open write };
+allow untrusted_app fuseblk:dir { search };
+allow untrusted_app fuseblk:file { read write };
+allow untrusted_app fuseblk:file { open };
+allow untrusted_app fuseblk:file { getattr };
+
+allow untrusted_app rootfs:dir { read };
+allow untrusted_app sysfs:file { read };
+allow untrusted_app sysfs:file { open };
+
+

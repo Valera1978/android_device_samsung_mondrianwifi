@@ -1,0 +1,7 @@
+allow platform_app fuseblk:dir read;
+allow platform_app fuseblk:dir { open write };
+allow platform_app fuseblk:dir { search };
+allow platform_app fuseblk:file { read write };
+allow platform_app fuseblk:file { open };
+allow platform_app fuseblk:file { getattr };
+
