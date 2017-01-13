@@ -1,7 +1,7 @@
 Device configuration for the Samsung Galaxy Note Pro 12.2
 
-Copyright (C) 2015 The CyanogenMod Project
-Copyright (C) 2015 Valera Chigir <valera1978@tut.by>
+Copyright (C) 2017 The LineageOS Project
+Copyright (C) 2017 Valera Chigir <valera1978@tut.by>
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -13,9 +13,9 @@ Copyright (C) 2015 Valera Chigir <valera1978@tut.by>
 
 * Description
 
-  This repository is for CyanogenMod on Samsung Galaxy Note Pro 12.2 (viennalte)
+  This repository is for LineageOS on Samsung Galaxy Note Pro 12.2 (viennalte)
 
-* How To Build CyanogenMod for Samsung Galaxy Note Pro 12.2
+* How To Build LineageOS for Samsung Galaxy Note Pro 12.2
 
   - Make a workspace
 
@@ -24,7 +24,7 @@ cd cm14
 
   - Do repo init & sync
 
-repo init -u git://github.com/CyanogenMod/android.git -b cm-14.1
+repo init -u git://github.com/LineageOS/android.git -b cm-14.1
 
   - Create .repo/local_manifests/roomservice.xml with the following content:
 
@@ -33,13 +33,13 @@ repo init -u git://github.com/CyanogenMod/android.git -b cm-14.1
   <project name="Valera1978/android_device_samsung_viennalte" path="device/samsung/viennalte" remote="github" revision="cm14.0" />
   <project name="Valera1978/android_kernel_samsung_viennalte" path="kernel/samsung/viennalte" remote="github" revision="cm14.0" />
   <project name="Valera1978/android_vendor_samsung_viennalte" path="vendor/samsung/viennalte" remote="github" revision="cm14.0" />
-  <project name="CyanogenMod/android_external_sony_boringssl-compat" path="external/sony/boringssl-compat" remote="github" />
-  <project name="CyanogenMod/android_device_samsung_msm8974-common" path="device/samsung/msm8974-common" remote="github" />
-  <project name="CyanogenMod/android_device_qcom_common" path="device/qcom/common" remote="github" />
-  <project name="CyanogenMod/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" />
-  <project name="CyanogenMod/android_hardware_samsung" path="hardware/samsung" remote="github" />
+  <project name="LineageOS/android_external_sony_boringssl-compat" path="external/sony/boringssl-compat" remote="github" />
+  <project name="LineageOS/android_device_samsung_msm8974-common" path="device/samsung/msm8974-common" remote="github" />
+  <project name="LineageOS/android_device_qcom_common" path="device/qcom/common" remote="github" />
+  <project name="LineageOS/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" />
+  <project name="LineageOS/android_hardware_samsung" path="hardware/samsung" remote="github" />
   <project name="TheMuppets/proprietary_vendor_qcom_binaries" path="vendor/qcom/binaries" remote="github" />
-  <project name="CyanogenMod/android_external_stlport" path="external/stlport" remote="github" />
+  <project name="LineageOS/android_external_stlport" path="external/stlport" remote="github" />
 </manifest>
 
 repo sync
@@ -64,6 +64,6 @@ brunch viennalte
 
 or another way:
 
-lunch cm_viennalte-userdebug
+lunch lineage_viennalte-userdebug
 export USE_CCACHE=1
 make -j10 bacon
