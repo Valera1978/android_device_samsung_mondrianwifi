@@ -1,6 +1,6 @@
-allow mediaserver persist_drm_file:dir search;
-allow mediaserver persist_drm_file:file rw_file_perms;
+allow mediaserver cameraproxy_service:service_manager find;
+allow mediaserver sensorservice_service:service_manager find;
 allow mediaserver sysfs_camera:dir search;
 allow mediaserver sysfs_camera:file { getattr open read };
-allow mediaserver system_data_file:sock_file { write };
 allow mediaserver system_file:file execmod; # for libmmjpeg
+allow mediaserver system_prop:property_service set;

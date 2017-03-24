@@ -13,7 +13,7 @@ echo "Setup makefiles in $OUT_ROOT for $DEVICE"
 echo "Proprietary files in $OUT_PROP"
 
 (cat << EOF) > $MAKEFILE
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -54,7 +54,7 @@ for FILE in `egrep -v '(^#|^$)' $1`; do
 done
 
 (cat << EOF) > $OUT_ROOT/$DEVICE-vendor.mk
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ PRODUCT_PACKAGES += \\
 EOF
 
   (cat << EOF) > $OUT_ROOT//Android.mk
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.

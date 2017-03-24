@@ -44,3 +44,7 @@ ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
 
 # Bluetooth
 qcom.bluetooth.soc=rome
+
+# Tethering
+PRODUCT_PROPERTY_OVERRIDES += \
+    net.tethering.noprovisioning=true
