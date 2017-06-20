@@ -29,7 +29,7 @@ TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 TARGET_OTA_ASSERT_DEVICE := viennalte,viennaltexx
 
-#BLOCK_BASED_OTA:= false
+# BLOCK_BASED_OTA:= false
 
 # Use Snapdragon LLVM if available on build server
 TARGET_USE_SDCLANG := true
@@ -44,9 +44,9 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
-TARGET_KERNEL_SOURCE := kernel/samsung/viennalte
-TARGET_KERNEL_CONFIG := msm8974_sec_defconfig
-TARGET_KERNEL_VARIANT_CONFIG := msm8974_sec_viennalteeur_cm_defconfig
+TARGET_KERNEL_CONFIG := lineageos_viennalteeur_defconfig
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
+TARGET_KERNEL_SOURCE := kernel/samsung/lt03lte
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm8974
@@ -62,10 +62,10 @@ BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 BOARD_HAVE_BLUETOOTH_BCM := true
 
 # Camera
-TARGET_PROVIDES_CAMERA_HAL := true
+#TARGET_PROVIDES_CAMERA_HAL := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 USE_DEVICE_SPECIFIC_CAMERA := true
-TARGET_NEEDS_GCC_LIBC := true
+#TARGET_NEEDS_GCC_LIBC := true
 
 # Charger
 BOARD_CHARGER_SHOW_PERCENTAGE := true
