@@ -32,8 +32,8 @@ persist.radio.lte_vrat_report=1
 persist.radio.mode_pref_nv10=1
 rild.libargs=-d /dev/smd0
 rild.libpath=/system/lib/libsec-ril.so
-ro.telephony.default_network=10
-ro.telephony.ril_class=TabproLteRIL
+#ro.telephony.default_network=10
+ro.telephony.ril_class=NoteProRIL
 
 # CWMR Options
 ro.cwm.forbid_format=/boot,/firmware,/firmware-modem
@@ -46,5 +46,4 @@ ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
 qcom.bluetooth.soc=rome
 
 # Tethering
-PRODUCT_PROPERTY_OVERRIDES += \
-    net.tethering.noprovisioning=true
+net.tethering.noprovisioning=true

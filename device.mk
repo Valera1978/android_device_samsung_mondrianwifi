@@ -130,14 +130,12 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    dhcpcd.conf \
     hostapd \
     hostapd_default.conf \
-    libwcnss_qmi \
     libwpa_client \
     macloader \
-    wcnss_service \
-    wpa_supplicant
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
