@@ -8,10 +8,6 @@
     "target_path": "device/samsung/msm8974-common"
   },
   {
-    "repository": "android_kernel_samsung_viennalte",
-    "target_path": "kernel/samsung/viennalte"
-  },
-  {
     "repository": "android_external_stlport",
     "target_path": "external/stlport"
   }
