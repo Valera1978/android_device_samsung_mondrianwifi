@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * RIL customization for Galaxy S5 (GSM) LTE devices
+ * RIL customization for Galaxy Note Pro 12.2 LTE devices
  *
  * {@hide}
  */

@@ -1,4 +1,5 @@
 #
+# Copyright (C) 2014-2016 The CyanogenMod Project
 # Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,12 +23,17 @@ $(call inherit-product-if-exists, vendor/samsung/viennalte/viennalte-vendor.mk)
 # We are a tablet, not a phone
 PRODUCT_CHARACTERISTICS := tablet
 
-# overlays
+# Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
+
+# Boot animation
+TARGET_SCREEN_WIDTH := 2560
+TARGET_SCREEN_HEIGHT := 1600
+TARGET_BOOTANIMATION_HALF_RES := true
 
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
@@ -49,31 +55,44 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
-# Camera
-PRODUCT_PACKAGES += \
-    camera.msm8974 \
-    libxml2
-
-# Doze
-PRODUCT_PACKAGES += \
-    SamsungDoze
-
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8974
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/flp.conf:system/etc/flp.conf
+    $(LOCAL_PATH)/configs/clatd.conf:system/etc/clatd.conf \
+    $(LOCAL_PATH)/configs/flp.conf:system/etc/flp.conf \
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/configs/izat.conf:system/etc/izat.conf \
+    $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf
+
+# Camera
+PRODUCT_PACKAGES += \
+    camera.msm8974 \
+    libstlport \
+    libxml2
+
+#PRODUCT_PACKAGES += \
+#    Snap
+
+# Doze
+PRODUCT_PACKAGES += \
+    SamsungDoze
+
+# IPv6 tethering
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes
+
+# IR Blaster
+PRODUCT_PACKAGES += \
+    consumerir.msm8974
 
 # Input device
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/sec_e-pen.idc:system/usr/idc/sec_e-pen.idc \
     $(LOCAL_PATH)/idc/Synaptics_HID_TouchPad.idc:system/usr/idc/Synaptics_HID_TouchPad.idc \
     $(LOCAL_PATH)/idc/Synaptics_RMI4_TouchPad_Sensor.idc:system/usr/idc/Synaptics_RMI4_TouchPad_Sensor.idc
-
-# IR
-PRODUCT_PACKAGES += \
-    consumerir.msm8974
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -83,13 +102,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl \
     $(LOCAL_PATH)/keylayout/synaptics_rmi4_i2c.kl:system/usr/keylayout/synaptics_rmi4_i2c.kl
 
-# Keystore
-PRODUCT_PACKAGES += \
-    keystore.msm8974
-
 # Lights
 PRODUCT_PACKAGES += \
-    lights.msm8974
+    lights.MSM8974
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -102,63 +117,30 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.carrier.rc \
-    init.crda.sh \
-    init.input.sh \
     init.qcom.rc \
     init.qcom.usb.rc \
-    init.target.rc \
+    init.sec.boot.sh \
     ueventd.qcom.rc
-
-# Ssl
-PRODUCT_PACKAGES += \
-    libboringssl-compat
-
-# Stlport
-PRODUCT_PACKAGES += \
-    libstlport
-
-# Gello
-PRODUCT_PACKAGES += \
-    Gello
-
-# Root
-PRODUCT_PACKAGES += \
-    su
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/etc/thermal-engine-8974.conf \
-    $(LOCAL_PATH)/configs/thermald-8974.conf:system/etc/thermald-8974.conf
+    $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/etc/thermal-engine-8974.conf
 
 # Wifi
 PRODUCT_PACKAGES += \
+    libnetcmdiface \
+    macloader
+
+PRODUCT_PACKAGES += \
+    hostapd.accept \
+    hostapd.deny \
     hostapd \
-    hostapd_default.conf \
-    libwpa_client \
-    macloader \
     wpa_supplicant \
     wpa_supplicant.conf
 
-# IPv6 tethering
-PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes
+PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+   $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
-# Boot animation
-TARGET_BOOTANIMATION_HALF_RES := true
-TARGET_SCREEN_WIDTH := 2560
-TARGET_SCREEN_HEIGHT := 1600
-
-# Default Properties
-#ADDITIONAL_DEFAULT_PROPERTIES += \
-#    persist.service.adb.enable=1 \
-#    persist.service.debuggable=1 \
-#    ro.adb.secure=0
-
-# Wifi
-PRODUCT_PACKAGES += \
-   libnetcmdiface
-
-# Common msm8974
+# common msm8974
 $(call inherit-product, device/samsung/msm8974-common/msm8974.mk)

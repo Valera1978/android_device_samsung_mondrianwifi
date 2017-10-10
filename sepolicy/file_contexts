@@ -19,17 +19,8 @@
 # EFS
 /dev/block/platform/msm_sdcc.1/by-name/efs              u:object_r:modem_efs_partition_device:s0
 
-# Fingerprint
-/data/validity(/.*)?                                    u:object_r:vcs_data_file:s0
-/dev/validity(/.*)?                                     u:object_r:vcs_device:s0
-/dev/vfsspi                                             u:object_r:vcs_device:s0
-
 # Macloader
 /system/bin/macloader                                   u:object_r:macloader_exec:s0
-
-# NFC
-/dev/bcm2079x                                           u:object_r:nfc_device:s0
-/dev/pn547                                              u:object_r:nfc_device:s0
 
 # RIL
 /data/data/com.android.providers.telephony/databases(/.*)?     u:object_r:radio_data_file:s0
