@@ -208,12 +208,12 @@
     </integer-array>
 
     <!-- Vibrator pattern for feedback about booting with safe mode disabled -->
-    <integer-array name="config_safeModeDisabledVibePattern">
+<!--    <integer-array name="config_safeModeDisabledVibePattern">
         <item>0</item>
         <item>1</item>
         <item>20</item>
         <item>21</item>
-    </integer-array>
+    </integer-array> -->
 
     <!-- Vibrator pattern for feedback about booting with safe mode disabled -->
     <integer-array name="config_safeModeEnabledVibePattern">
@@ -241,7 +241,7 @@
     <bool name="config_enableLockScreenRotation">false</bool>
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
-    <bool name="config_batterySdCardAccessibility">true</bool>
+<!--    <bool name="config_batterySdCardAccessibility">true</bool> -->
 
     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -255,7 +255,7 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">83</integer>
+<!--    <integer name="config_deviceHardwareKeys">83</integer> -->
 
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -269,7 +269,7 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareWakeKeys">65</integer>
+<!--    <integer name="config_deviceHardwareWakeKeys">65</integer> -->
 
     <bool name="config_enableWifiDisplay">true</bool>
 
@@ -302,7 +302,7 @@
     <!-- Certain sensor firmwares break with having a batch
          size set. By setting this to false, devices can opt
          out of setting a batch size, which fixes rotation. -->
-    <bool name="config_useDefaultBatchingForAccel">false</bool>
+<!--    <bool name="config_useDefaultBatchingForAccel">false</bool> -->
 
     <!-- Override the default detection behavior for the framework method
          android.view.ViewConfiguration#hasPermanentMenuKey().
@@ -313,7 +313,7 @@
     <integer name="config_overrideHasPermanentMenuKey">2</integer>
 
     <!-- Enable blur support -->
-    <bool name="config_uiBlurEnabled">true</bool>
+<!--    <bool name="config_uiBlurEnabled">true</bool> -->
 
     <!-- Values for GPS configuration -->
     <string-array translatable="false" name="config_gpsParameters">

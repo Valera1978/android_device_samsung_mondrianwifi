@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # inherit from common msm8974
--include device/samsung/msm8974-common/BoardConfigCommon.mk
+include device/samsung/msm8974-common/BoardConfigCommon.mk
 
 LOCAL_PATH := device/samsung/viennalte
 
@@ -28,12 +28,17 @@ TARGET_OTA_ASSERT_DEVICE := viennalte,viennaltexx
 # Use Snapdragon LLVM if available on build server
 TARGET_USE_SDCLANG := true
 
+# ADB Legacy Interface
+TARGET_USES_LEGACY_ADB_INTERFACE := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
+#BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 androidboot.selinux=permissive
+BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
@@ -51,6 +56,9 @@ TARGET_LIBINIT_MSM8974_DEFINES_FILE := device/samsung/viennalte/init/init_vienna
 BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
 USE_CUSTOM_AUDIO_POLICY := 1
 
+# Binder API version
+TARGET_USES_64_BIT_BINDER := true
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_CUSTOM_BT_CONFIG := $(LOCAL_PATH)/bluetooth/vnd_viennalte.txt
@@ -61,8 +69,11 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
-# CMHW
-BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/cmhw
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(LOCAL_PATH)/config.fs
+
+# HIDL
+DEVICE_MANIFEST_FILE += $(LOCAL_PATH)/manifest.xml
 
 # Legacy BLOB Support
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
@@ -86,7 +97,8 @@ TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(LOCAL_PATH)/power/power_ext.c
 TARGET_POWERHAL_VARIANT := qcom
 
 # Radio
-BOARD_RIL_CLASS := ../../../device/samsung/viennalte/ril
+#BOARD_PROVIDES_LIBRIL := true
+#TARGET_RIL_VARIANT := caf
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/viennalte/recovery/recovery_keys.c
@@ -96,14 +108,13 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_RECOVERY_SWIPE := true
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.full
 
 # SELinux
 -include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
-# Sensors
-#TARGET_NO_SENSOR_PERMISSION_CHECK := true
+BOARD_SEPOLICY_DIRS += \
+    $(COMMON_PATH)/sepolicy
 
 # TWRP Support - Optional
 ifeq ($(WITH_TWRP),true)

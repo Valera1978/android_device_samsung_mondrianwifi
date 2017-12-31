@@ -1,5 +1,4 @@
 #
-# Copyright (C) 2014-2016 The CyanogenMod Project
 # Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,10 +14,4 @@
 # limitations under the License.
 #
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-
-$(call inherit-product, device/samsung/viennalte/full_viennalte.mk)
-
-PRODUCT_DEVICE := viennalte
-PRODUCT_NAME := lineage_viennalte
+include $(call first-makefiles-under,$(call my-dir))

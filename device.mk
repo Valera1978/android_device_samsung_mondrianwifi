@@ -51,9 +51,10 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
-    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml
+    $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+    $(LOCAL_PATH)/audio/audio_platform_info.xml:system/vendor/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/audio/audio_policy.conf:system/vendor/etc/audio_policy.conf \
+    $(LOCAL_PATH)/audio/mixer_paths.xml:system/vendor/etc/mixer_paths.xml
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -66,18 +67,24 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/izat.conf:system/etc/izat.conf \
     $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    libbt-vendor
+
 # Camera
 PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl \
+    camera.device@1.0-impl \
     camera.msm8974 \
-    libstlport \
+    libshim_camera \
     libxml2
 
 #PRODUCT_PACKAGES += \
 #    Snap
 
 # Doze
-PRODUCT_PACKAGES += \
-    SamsungDoze
+#PRODUCT_PACKAGES += \
+#    SamsungDoze
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
@@ -85,8 +92,8 @@ PRODUCT_PACKAGES += \
     ethertypes
 
 # IR Blaster
-PRODUCT_PACKAGES += \
-    consumerir.msm8974
+#PRODUCT_PACKAGES += \
+#    consumerir.msm8974
 
 # Input device
 PRODUCT_COPY_FILES += \
@@ -104,6 +111,7 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
     lights.MSM8974
 
 # Media
@@ -112,7 +120,8 @@ PRODUCT_COPY_FILES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    libril_shim
+    libsecnativefeature \
+    libshim_cutils_atomic
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -126,17 +135,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/etc/thermal-engine-8974.conf
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+
 # Wifi
 PRODUCT_PACKAGES += \
     libnetcmdiface \
     macloader
-
-PRODUCT_PACKAGES += \
-    hostapd.accept \
-    hostapd.deny \
-    hostapd \
-    wpa_supplicant \
-    wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \

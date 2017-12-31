@@ -25,6 +25,7 @@ ro.hdcp2.rx=tz
 ro.qualcomm.cabl=1
 ro.secwvk=144
 ro.sf.lcd_density=320
+debug.hwui.use_buffer_age=false
 
 # GPS
 persist.gps.qc_nlp_in_use=0
@@ -35,6 +36,7 @@ ro.qc.sdk.izat.service_mask=0x0
 # Media
 media.stagefright.legacyencoder=true
 media.stagefright.less-secure=true
+persist.media.treble_omx=false
 
 # Perf
 ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
@@ -45,7 +47,6 @@ persist.data.qmi.adb_logmask=0
 persist.radio.add_power_save=1
 persist.radio.lte_vrat_report=1
 ro.telephony.mms_data_profile=5
-ro.telephony.ril_class=NoteProRIL
 
 rild.libargs=-d /dev/smd0
 rild.libpath=/system/lib/libsec-ril.so
@@ -58,7 +59,7 @@ ro.telephony.call_ring.multiple=0
 debug.sensors=1
 
 # Storage
-ro.sys.sdcardfs=true
+ro.sys.sdcardfs=false
 
 # Tethering
 net.tethering.noprovisioning=true
