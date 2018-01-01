@@ -49,7 +49,7 @@ persist.radio.lte_vrat_report=1
 ro.telephony.mms_data_profile=5
 
 rild.libargs=-d /dev/smd0
-rild.libpath=/system/lib/libsec-ril.so
+rild.libpath=/system/vendor/lib/libsec-ril.so
 ro.ril.telephony.mqanelements=6
 
 # Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
