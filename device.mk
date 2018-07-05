@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2014-2016 The CyanogenMod Project
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2017-2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -73,23 +73,17 @@ PRODUCT_PACKAGES += \
     camera.device@1.0-impl \
     camera.msm8974 \
     libshim_camera \
-    libxml2
-
-#PRODUCT_PACKAGES += \
-#    Snap
+    libxml2 \
+    Snap
 
 # Doze
-#PRODUCT_PACKAGES += \
-#    SamsungDoze
+PRODUCT_PACKAGES += \
+    SamsungDoze
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
-
-# IR Blaster
-#PRODUCT_PACKAGES += \
-#    consumerir.msm8974
 
 # Input device
 PRODUCT_COPY_FILES += \
@@ -112,12 +106,12 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 # Radio
 PRODUCT_PACKAGES += \
-    libsecnativefeature \
-    libshim_cutils_atomic
+    libsecnativefeature
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -147,6 +141,11 @@ PRODUCT_COPY_FILES += \
 # Root
 PRODUCT_PACKAGES += \
     su
+
+# ADB
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=adb \
+    ro.adb.secure=0
 
 # common msm8974
 $(call inherit-product, device/samsung/msm8974-common/msm8974.mk)

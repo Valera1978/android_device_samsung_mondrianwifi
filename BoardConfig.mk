@@ -1,5 +1,5 @@
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2014-2016 The CyanogenMod Project
+# Copyright (C) 2017-2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,21 +22,32 @@ TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 TARGET_OTA_ASSERT_DEVICE := viennalte,viennaltexx
 
-# BLOCK_BASED_OTA:= false
 # WITH_TWRP := true
 
-# Use Snapdragon LLVM if available on build server
-TARGET_USE_SDCLANG := true
+# Audio
+BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
+USE_CUSTOM_AUDIO_POLICY := 1
 
-# ADB Legacy Interface
-TARGET_USES_LEGACY_ADB_INTERFACE := true
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+BOARD_CUSTOM_BT_CONFIG := $(LOCAL_PATH)/bluetooth/vnd_viennalte.txt
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 
+# Camera
+USE_DEVICE_SPECIFIC_CAMERA := true
+
+# Extended Filesystem Support
+TARGET_EXFAT_DRIVER := sdfat
+
+# HIDL
+DEVICE_MANIFEST_FILE += $(LOCAL_PATH)/manifest.xml
+
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-#BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_PAGESIZE := 2048
@@ -52,31 +63,10 @@ TARGET_KERNEL_SOURCE := kernel/samsung/msm8974
 TARGET_INIT_VENDOR_LIB := libinit_msm8974
 TARGET_LIBINIT_MSM8974_DEFINES_FILE := device/samsung/viennalte/init/init_viennalte.cpp
 
-# Audio
-BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
-USE_CUSTOM_AUDIO_POLICY := 1
-
-# Binder API version
-TARGET_USES_64_BIT_BINDER := true
-
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
-BOARD_CUSTOM_BT_CONFIG := $(LOCAL_PATH)/bluetooth/vnd_viennalte.txt
-BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
-BOARD_HAVE_BLUETOOTH_BCM := true
-
-# Camera
-TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-USE_DEVICE_SPECIFIC_CAMERA := true
-
-# Filesystem
-TARGET_FS_CONFIG_GEN := $(LOCAL_PATH)/config.fs
-
-# HIDL
-DEVICE_MANIFEST_FILE += $(LOCAL_PATH)/manifest.xml
-
 # Legacy BLOB Support
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+TARGET_LD_SHIM_LIBS += \
+    /system/vendor/lib/hw/camera.vendor.msm8974.so|libshim_camera.so
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -90,7 +80,6 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 27847015936
 BOARD_CACHEIMAGE_PARTITION_SIZE := 524288000
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := f2fs
 
 # Power HAL
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(LOCAL_PATH)/power/power_ext.c
@@ -111,14 +100,15 @@ BOARD_RECOVERY_SWIPE := true
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.full
 
 # SELinux
--include device/qcom/sepolicy/sepolicy.mk
-
-BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
+include $(LOCAL_PATH)/sepolicy/sepolicy.mk
 
 # TWRP Support - Optional
 ifeq ($(WITH_TWRP),true)
 -include $(LOCAL_PATH)/twrp.mk
 endif
+
+# Use Snapdragon LLVM if available on build server
+TARGET_USE_SDCLANG := true
 
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI := true

@@ -34,8 +34,6 @@ ro.qc.sdk.izat.premium_enabled=0
 ro.qc.sdk.izat.service_mask=0x0
 
 # Media
-media.stagefright.legacyencoder=true
-media.stagefright.less-secure=true
 persist.media.treble_omx=false
 
 # Perf
@@ -47,8 +45,6 @@ persist.data.qmi.adb_logmask=0
 persist.radio.add_power_save=1
 rild.libpath=/system/vendor/lib/libsec-ril.so
 ro.telephony.mms_data_profile=5
-ro.ril.telephony.data_reg_resp_strings=7
-ro.ril.telephony.oper_resp_strings=4
 ro.ril.telephony.qan_resp_strings=6
 
 # Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
@@ -57,16 +53,8 @@ ro.telephony.call_ring.multiple=0
 # Sensors
 debug.sensors=1
 
-# Storage
-ro.sys.sdcardfs=false
-
 # Tethering
 net.tethering.noprovisioning=true
 
 # WiFi
 wifi.interface=wlan0
-
-# Enable adb
-#persist.service.adb.enable=1
-#persist.service.debuggable=1
-#ro.adb.secure=0
