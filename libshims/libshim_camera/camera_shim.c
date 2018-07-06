@@ -31,3 +31,6 @@ const char _ZN7android16CameraParameters25KEY_DYNAMIC_RANGE_CONTROLE[] = "dynami
 const char _ZN7android16CameraParameters35KEY_SUPPORTED_DYNAMIC_RANGE_CONTROLE[] = "dynamic-range-control-values";
 const char _ZN7android16CameraParameters7DRC_OFFE[] = "off";
 const char _ZN7android16CameraParameters6DRC_ONE[] = "on";
+
+//int CameraParameters::getInt64(const char *key) const { return -1; };
+extern int _ZNK7android16CameraParameters8getInt64EPKc(const char *key) { return -1; }
