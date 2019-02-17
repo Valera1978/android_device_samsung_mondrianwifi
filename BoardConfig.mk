@@ -25,7 +25,6 @@ TARGET_OTA_ASSERT_DEVICE := viennalte,viennaltexx
 # WITH_TWRP := true
 
 # Audio
-BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
 USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
@@ -36,9 +35,6 @@ BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
-
-# Camera
-USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Extended Filesystem Support
 TARGET_EXFAT_DRIVER := sdfat
@@ -66,6 +62,13 @@ TARGET_INIT_VENDOR_LIB := libinit_msm8974
 # Legacy BLOB Support
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 TARGET_LD_SHIM_LIBS += /system/vendor/lib/hw/camera.vendor.msm8974.so|libshim_camera.so
+TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
+    /system/bin/mediaserver=22 \
+    /system/vendor/bin/mm-qcamera-daemon=22 \
+    /system/vendor/bin/hw/rild=27
+
+# Lineage Hardware
+JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(LOCAL_PATH)/lineagehw|**/*.java
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072

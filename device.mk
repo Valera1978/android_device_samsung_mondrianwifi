@@ -35,10 +35,6 @@ TARGET_SCREEN_WIDTH := 2560
 TARGET_SCREEN_HEIGHT := 1600
 TARGET_BOOTANIMATION_HALF_RES := true
 
-$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
-
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
-
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
@@ -48,12 +44,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl \
-    camera.device@1.0-impl \
-    camera.msm8974 \
-    libshim_camera \
-    libxml2 \
-    Snap
+    libshim_camera
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -127,17 +118,22 @@ PRODUCT_PACKAGES += \
     macloader
 
 PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-   $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
+   $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
+   $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf
+
+# ADB
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.sys.usb.config=adb \
+    ro.adb.secure=0 \
+    ro.secure=0
 
 # Root
 PRODUCT_PACKAGES += \
     su
 
-# ADB
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=adb \
-    ro.adb.secure=0
+# Root
+PRODUCT_PACKAGES += \
+    su
 
 # common msm8974
 $(call inherit-product, device/samsung/msm8974-common/msm8974.mk)
