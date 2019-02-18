@@ -414,7 +414,7 @@
 		<ctl name="Main Mic Delay" value="4" />
 		<path name="main-mic" />
 		<ctl name="ADC1 Volume" value="10" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="105" />
 	</path>
 
 	<path name="rec-headset-mic">
