@@ -112,6 +112,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl
 
+# Vendor properties
+-include $(LOCAL_PATH)/system_prop.mk
+
 # Wifi
 PRODUCT_PACKAGES += \
     libnetcmdiface \
