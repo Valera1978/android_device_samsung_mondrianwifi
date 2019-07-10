@@ -1,0 +1,2 @@
+allow hal_sensors_default system_data_file:dir { write add_name };
+allow hal_sensors_default system_data_file:file { create open write getattr };
