@@ -47,6 +47,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.izat.premium_enabled=0 \
     ro.qc.sdk.izat.service_mask=0x0
 
+# Memory optimizations
+ro.vendor.qti.am.reschedule_service=true
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.media.treble_omx=false
