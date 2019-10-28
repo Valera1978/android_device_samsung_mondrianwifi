@@ -18,8 +18,8 @@
 
 set -e
 
-export DEVICE=viennalte
-export DEVICE_COMMON=viennalte
+export DEVICE=mondrianwifi
+export DEVICE_COMMON=mondrianwifi
 export VENDOR=samsung
 
 export INITIAL_COPYRIGHT_YEAR=2014
@@ -41,7 +41,7 @@ fi
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$CM_ROOT" true
 
 # Copyright headers and common guards
-write_headers "viennalte"
+write_headers "mondrianwifi"
 
 write_makefiles "$MY_DIR"/common-proprietary-files.txt
 

@@ -1,7 +1,7 @@
-Device configuration for the Samsung Galaxy Note Pro 12.2
+Device configuration for the Samsung Tab Pro 8.4
 
-Copyright (C) 2017 The LineageOS Project
-Copyright (C) 2017 Valera Chigir <valera1978@tut.by>
+Copyright (C) 2019 The LineageOS Project
+Copyright (C) 2019 Valera Chigir <valera1978@tut.by>
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -13,9 +13,9 @@ Copyright (C) 2017 Valera Chigir <valera1978@tut.by>
 
 * Description
 
-  This repository is for LineageOS on Samsung Galaxy Note Pro 12.2 (viennalte)
+  This repository is for LineageOS on Samsung Tab Pro 8.4 (mondrianwifi)
 
-* How To Build LineageOS for Samsung Galaxy Note Pro 12.2
+* How To Build LineageOS for Samsung Tab Pro 8.4
 
   - Make a workspace
 
@@ -31,10 +31,9 @@ repo init -u git://github.com/LineageOS/android.git -b cm-16.0
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <project name="Valera1978/android_device_samsung_viennalte" path="device/samsung/viennalte" remote="github" />
-  <project name="Valera1978/android_kernel_samsung_msm8974" path="kernel/samsung/msm8974" remote="github" />
-  <project name="Valera1978/android_vendor_samsung_viennalte" path="vendor/samsung/viennalte" remote="github" />
-  <project name="LineageOS/android_external_sony_boringssl-compat" path="external/sony/boringssl-compat" remote="github" />
+  <project name="Valera1978/android_device_samsung_mondrianwifi" path="device/samsung/mondrianwifi" remote="github" />
+  <project name="Valera1978/android_kernel_samsung_msm8974" path="kernel/samsung/msm8974_tab" remote="github" revision="lineage-16.0_pro" />
+  <project name="Valera1978/android_vendor_samsung_mondrianwifi" path="vendor/samsung/mondrianwifi" remote="github" />
   <project name="LineageOS/android_device_samsung_msm8974-common" path="device/samsung/msm8974-common" remote="github" />
   <project name="LineageOS/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" />
   <project name="Valera1978/android_hardware_samsung" path="hardware/samsung" remote="github" />
@@ -59,10 +58,10 @@ repo sync
 
   - Build cm16
 
-brunch viennalte
+brunch mondrianwifi
 
 or another way:
 
-lunch lineage_viennalte-userdebug
+lunch lineage_mondrianwifi-userdebug
 export USE_CCACHE=1
 make -j16 bacon

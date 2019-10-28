@@ -167,6 +167,10 @@
 /dev/dvb/adapter0/dvr*    0660   media      media
 /dev/dvb/adapter0/video*  0660   media      media
 
+# Broadcast devices
+/dev/tsc_mux0             0660   media       media
+/dev/tsc_ci0              0660   media       media
+
 # IR_LED
 /dev/ice4_dev             0660   system     system
 
@@ -192,8 +196,39 @@
 /sys/devices/virtual/input/input*                   poll           0660    input    system
 /sys/devices/virtual/input/input*                   pollrate_ms    0660    input    system
 
+# wlan
+/dev/wcnss_wlan           0660   system     system
+/dev/wcnss_ctrl		  0660   system     system
+
+# UIO devices
+/dev/uio0                 0660   system     system
+/dev/uio1                 0660   system     system
+/dev/uio2                 0660   system     system
+
+v/ppp                  0660   radio      vpn
+
+# for usb printer
+/dev/bus/usb/*         0660        system        usb
+/dev/usb/lp*           0660        system        usb
+
+#permission for dun
+/dev/dun               0660   system     system
+
+# for PL2303 driver
+/dev/ttyUSB*           0660   system     usb
+
+# EFS
+/dev/block/mmcblk0p11     0660   system     system
+
+# sysfs properties
+/sys/devices/virtual/input/input*   enable      0660  root   input
+/sys/devices/virtual/input/input*   delay      0660  root   input
+/sys/devices/virtual/input/input*   poll_delay  0660  root   input
+/sys/devices/virtual/input/input*   flush  0660  root   input
+/sys/devices/virtual/usb_composite/*   enable      0664  root   system
+/sys/devices/f9924000.i2c/i2c-2/2-0020/input/input*   enabled     0660  system  system
+
 # sensorhub
-/dev/batch_io             0660   system     system
 /dev/ssp_sensorhub        0660   system     system
 /dev/iio:device*		  0660	 system	system
 /sys/devices/f9967000.spi/spi_master/spi32766/spi32766.0/iio:device*   buffer/enable 0660	  system	system
@@ -202,16 +237,8 @@
 /sys/devices/f9967000.spi/spi_master/spi32765/spi32765.0/iio:device*   buffer/length 0660	  system	system
 /sys/devices/f9967000.spi/spi_master/spi11/spi11.0/iio:device*   buffer/enable 0660	  system	system
 /sys/devices/f9967000.spi/spi_master/spi11/spi11.0/iio:device*   buffer/length 0660	  system	system
-/sys/devices/f9924000.spi/spi_master/spi32766/spi32766.0/iio:device*   buffer/enable 0660     system    radio
-/sys/devices/f9924000.spi/spi_master/spi32766/spi32766.0/iio:device*   buffer/length 0660     system    radio
-/sys/devices/f9924000.spi/spi_master/spi32765/spi32765.0/iio:device*   buffer/enable 0660     system    radio
-/sys/devices/f9924000.spi/spi_master/spi32765/spi32765.0/iio:device*   buffer/length 0660     system    radio
+/sys/devices/f9924000.i2c/i2c-2/2-0020/input/input*   enabled     0660  system  system
 
-#Accelerometer sensor
-/sys/devices/f9925000.i2c/i2c-0/0-0018/input/input*   enable     0664  system  system
-/sys/devices/f9925000.i2c/i2c-0/0-0018/input/input*   delay     0664  system  system
-/sys/devices/i2c.73/i2c-16/16-0018/input/input* enable    0664  system  system
-/sys/devices/i2c.73/i2c-16/16-0018/input/input* delay     0664  system  system
 
 # sysfs iio event
 /sys/devices/f9927000.i2c/i2c-5/5-0024/iio:device*										0664   system     radio
@@ -226,6 +253,11 @@
 /sys/devices/f9927000.i2c/i2c-5/5-0039/iio:device* prox_delay							0660   system     radio
 /sys/devices/f9927000.i2c/i2c-5/5-0039/iio:device* in_illuminance0_input				0660   system     radio
 /sys/devices/f9927000.i2c/i2c-5/5-0039/iio:device* in_proximity0_input					0660   system     radio
+
+/sys/devices/f9968000.i2c/i2c-12/12-0068/iio:device* buffer                             0777   system     radio
+/sys/devices/f9968000.i2c/i2c-12/12-0068/iio:device* scan_elements                      0777   system     radio
+/sys/devices/f9968000.i2c/i2c-12/12-0068/iio:device* trigger                            0777   system     radio
+/sys/devices/f9968000.i2c/i2c-12/12-0068/iio:device* power                              0777   system     radio
 
 /sys/devices/f9968000.i2c/i2c-12/12-0068/iio:device* uevent								0660   system     radio
 /sys/devices/f9968000.i2c/i2c-12/12-0068/iio:device* dev								0660   system     radio

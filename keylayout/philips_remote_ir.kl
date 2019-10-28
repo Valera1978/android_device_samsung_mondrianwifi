@@ -1,5 +1,5 @@
 # Copyright (c) 2012, The Linux Foundation. All rights reserved.
-#
+
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
 # met:
@@ -23,7 +23,41 @@
 # BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+key 512    0
+key 513    1
+key 514    2
+key 515    3
+key 516    4
+key 517    5
+key 518    6
+key 519    7
+key 520    8
+key 521    9
+key 213   AVR_INPUT
+key 375   WINDOW
 key 115   VOLUME_UP
 key 114   VOLUME_DOWN
-key 172   HOME
+key 113   VOLUME_MUTE
+key 402   CHANNEL_UP
+key 403   CHANNEL_DOWN
+key 158   BACK
+key 358   INFO
+key 352   ENTER
+key 103   DPAD_UP
+key 108   DPAD_DOWN
+key 105   DPAD_LEFT
+key 106   DPAD_RIGHT
+key 119   MEDIA_PAUSE
+key 366   DVR
+key 174   BREAK
+key 148   PROG_RED
+key 373   PROG_GREEN
+key 142   PROG_YELLOW
+key 386   PROG_BLUE
+key 377   TV
+key 181   TV_INPUT
+key 127   FUNCTION
+key 139   MENU
+key 116   POWER

@@ -1,5 +1,5 @@
 # Copyright (c) 2012, The Linux Foundation. All rights reserved.
-#
+
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
 # met:
@@ -24,8 +24,39 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-key 139    MENU
-key 102    HOME
-key 158    BACK
-key 217    SEARCH
+#
+key 11   0
+key 2    1
+key 3    2
+key 4    3
+key 5    4
+key 6    5
+key 7    6
+key 8    7
+key 9    8
+key 10   9
+key 115   VOLUME_UP
+key 114   VOLUME_DOWN
+key 113   VOLUME_MUTE
+key 402   CHANNEL_UP
+key 403   CHANNEL_DOWN
+key 158   BACK
+key 102   INFO
+key 28   ENTER
+key 103   DPAD_UP
+key 108   DPAD_DOWN
+key 105   DPAD_LEFT
+key 106   DPAD_RIGHT
+key 119   MEDIA_PAUSE
+key 30   PROG_RED
+key 48   PROG_GREEN
+key 46   PROG_YELLOW
+key 32   PROG_BLUE
+key 139   MENU
+key 116   POWER
+key 168	  MEDIA_REWIND
+key 119   MEDIA_PAUSE
+key 208   MEDIA_FAST_FORWARD
+key 167   MEDIA_RECORD
+key 207   MEDIA_PLAY
+key 128   MEDIA_STOP

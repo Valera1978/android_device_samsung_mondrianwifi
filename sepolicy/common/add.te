@@ -1,0 +1,27 @@
+#============= fsck ==============
+allow fsck self:capability dac_override;
+
+#============= init ==============
+allow init shell_exec:file execute_no_trans;
+allow init sysfs:file setattr;
+
+#============= shell ==============
+allow shell kernel:system syslog_read;
+
+#============= system_app ==============
+allow system_app proc_pagetypeinfo:file { getattr open read };
+
+#============= webview_zygote ==============
+allow webview_zygote zygote:unix_dgram_socket write;
+
+#============= zygote ==============
+allow zygote proc_cmdline:file { open read getattr };
+
+#============= hal_sensors_default ==============
+allow hal_sensors_default sysfs:file { open read write getattr };
+
+#============= mediaserver ==============
+allow mediaserver hal_lineage_camera_motor_hwservice:hwservice_manager find;
+
+#============= wcnss_service ==============
+allow wcnss_service wifi_efs_file:file { open read getattr };

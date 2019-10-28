@@ -18,8 +18,8 @@
 
 set -e
 
-export DEVICE=viennalte
-export DEVICE_COMMON=viennalte
+export DEVICE=mondrianwifi
+export DEVICE_COMMON=mondrianwifi
 export VENDOR=samsung
 
 # Load extract_utils and do some sanity checks

@@ -1,0 +1,1 @@
+allow kernel sensors_persist_file:dir search;

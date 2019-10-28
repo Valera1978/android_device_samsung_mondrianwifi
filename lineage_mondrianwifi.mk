@@ -14,28 +14,21 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
-# Inherit from viennalte device
-$(call inherit-product, device/samsung/viennalte/device.mk)
+# Inherit from mondrianwifi device
+$(call inherit-product, device/samsung/mondrianwifi/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := lineage_viennalte
-PRODUCT_DEVICE := viennalte
+PRODUCT_NAME := lineage_mondrianwifi
+PRODUCT_DEVICE := mondrianwifi
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := SM-P905
+PRODUCT_MODEL := SM-T320
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="viennaltexx-user 5.0.2 LRX22G P905XXUABPE2 release-keys"
-
-# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := samsung/viennaltexx/viennalte:5.0.2/LRX22G/P905XXUABPE2:user/release-keys
-#BUILD_FINGERPRINT := Xiaomi/sagit/sagit:7.1.1/NMF26X/V8.2.17.0.NCACNEC:user/release-keys
 
 TARGET_VENDOR := Samsung

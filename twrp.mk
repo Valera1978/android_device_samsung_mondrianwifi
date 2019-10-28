@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGET_RECOVERY_DEVICE_DIRS += device/samsung/viennalte/twrp
+TARGET_RECOVERY_DEVICE_DIRS += device/samsung/mondrianwifi/twrp
 
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"

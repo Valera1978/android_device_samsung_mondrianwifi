@@ -25,20 +25,26 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Dalvik heap
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapstartsize=16m \
-    dalvik.vm.heapgrowthlimit=192m \
+    dalvik.vm.heapstartsize=8m \
+    dalvik.vm.heapgrowthlimit=128m \
     dalvik.vm.heapsize=512m \
     dalvik.vm.heaptargetutilization=0.75 \
     dalvik.vm.heapminfree=2m \
     dalvik.vm.heapmaxfree=8m
 
+# Bluetooth
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.qcom.bluetooth.soc=smd \
+    ro.bt.bdaddr_path=/efs/bluetooth/bt_addr
+
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hdcp2.rx=tz \
-    ro.qualcomm.cabl=1 \
-    ro.secwvk=144 \
-    ro.sf.lcd_density=320 \
-    debug.hwui.use_buffer_age=false
+    debug.hwui.use_buffer_age=false \
+    persist.hwc.mdpcomp.enable=true \
+    persist.hwc.ptor.enable=true \
+    persist.metadata_dynfps.disable=true \
+    ro.opengles.version=196608 \
+    ro.sf.lcd_density=320
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -48,7 +54,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.izat.service_mask=0x0
 
 # Memory optimizations
-ro.vendor.qti.am.reschedule_service=true
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.am.reschedule_service=true \
+    ro.vendor.qti.sys.fw.bservice_enable=true
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -56,24 +64,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.timed.enable=true \
     ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
-
-# Radio
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.netmgrd.qos.enable=true \
-    persist.data.qmi.adb_logmask=0 \
-    persist.radio.add_power_save=1 \
-    rild.libpath=/system/vendor/lib/libsec-ril.so \
-    ro.telephony.mms_data_profile=5 \
-    ro.ril.telephony.qan_resp_strings=6
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.default_network=9 \
-    telephony.lteOnGsmDevice=1
-
-# Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.call_ring.multiple=0
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -82,6 +74,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
+
+# radio
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.radio.noril=yes
 
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \

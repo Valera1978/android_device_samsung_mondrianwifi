@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_viennalte.mk
+    $(LOCAL_DIR)/lineage_mondrianwifi.mk
