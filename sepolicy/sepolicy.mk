@@ -14,6 +14,11 @@
 # limitations under the License.
 #
 
+#include device/qcom/sepolicy-legacy-um/sepolicy.mk
+
 # Board specific SELinux policy variable definitions
+#BOARD_SEPOLICY_DIRS += \
+#    device/samsung/mondrianwifi/sepolicy/common
+
 BOARD_SEPOLICY_DIRS += \
-    device/samsung/mondrianwifi/sepolicy/common
+    device/samsung/mondrianwifi/sepolicy/common_tmp

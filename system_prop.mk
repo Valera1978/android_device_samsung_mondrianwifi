@@ -1,3 +1,8 @@
+# Memory optimizations
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.am.reschedule_service=true \
+    ro.vendor.qti.sys.fw.bservice_enable=true
+
 # Art
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-swap=false
@@ -32,6 +37,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=2m \
     dalvik.vm.heapmaxfree=8m
 
+# Limit dex2oat threads to improve thermals
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-threads=2 \
+    dalvik.vm.image-dex2oat-threads=4
+
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qcom.bluetooth.soc=smd \
@@ -39,12 +49,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hdcp2.rx=tz \
+    ro.qualcomm.cabl=1 \
+    ro.secwvk=144 \
+    ro.sf.lcd_density=320 \
     debug.hwui.use_buffer_age=false \
-    persist.hwc.mdpcomp.enable=true \
-    persist.hwc.ptor.enable=true \
-    persist.metadata_dynfps.disable=true \
-    ro.opengles.version=196608 \
-    ro.sf.lcd_density=320
+    debug.sf.enable_gl_backpressure=1
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -53,19 +63,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.izat.premium_enabled=0 \
     ro.qc.sdk.izat.service_mask=0x0
 
-# Memory optimizations
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.am.reschedule_service=true \
-    ro.vendor.qti.sys.fw.bservice_enable=true
-
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.media.treble_omx=false
 
+# Disable more Codec2.0 components
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.stagefright.ccodec=0
+
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.timed.enable=true \
     ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
+
+# radio
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.radio.noril=yes
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -74,10 +86,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
-
-# radio
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.radio.noril=yes
 
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
