@@ -158,8 +158,7 @@ TARGET_LD_SHIM_LIBS += \
 
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/bin/mediaserver=22 \
-    /system/vendor/bin/mm-qcamera-daemon=22 \
-    /system/vendor/lib/libarcsoft_nighthawk.so=22
+    /system/vendor/bin/mm-qcamera-daemon=22
 
 # Lineage Hardware
 JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(LOCAL_PATH)/lineagehw|**/*.java
