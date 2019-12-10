@@ -24,6 +24,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.dedicated.device.for.voip=true \
     vendor.voice.path.for.pcm.voip=false
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    audio.offload.gapless.enabled=false \
+    av.offload.enable=true
+
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
@@ -49,11 +53,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.hw=1 \
+    debug.mdpcomp.logs=0 \
+    persist.hwc.mdpcomp.enable=true \
     ro.hdcp2.rx=tz \
     ro.qualcomm.cabl=1 \
     ro.secwvk=144 \
     ro.sf.lcd_density=320 \
     debug.hwui.use_buffer_age=false \
+    ro.opengles.version=196608 \
     debug.sf.enable_gl_backpressure=1
 
 # GPS
@@ -75,7 +83,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
 
-# radio
+# Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.radio.noril=yes
 
@@ -90,3 +98,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.timed.enable=true
