@@ -19,4 +19,37 @@ LOCAL_PATH := $(call my-dir)
 ifeq ($(TARGET_DEVICE),mondrianwifi)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
+include $(CLEAR_VARS)
+
+KM_IMAGES := \
+    keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaste.mdt
+
+KM_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/keymaster/,$(notdir $(KM_IMAGES)))
+$(KM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Keymaster firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/keymaste$(suffix $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(KM_SYMLINKS)
+
+WCNSS_IMAGES := \
+    wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b04 wcnss.b06 \
+    wcnss.b07 wcnss.b08 wcnss.b09 wcnss.mdt
+
+WCNSS_IMAGES := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(WV_IMAGES)))
+$(WCNSS_IMAGES): $(LOCAL_INSTALLED_MODULE)
+	@echo "wcnss firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_IMAGES)
+
+# Create a link for the WCNSS config file, which ends up as a writable
+# version in /data/misc/wifi
+$(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
+    ln -sf /data/misc/wifi/WCNSS_qcom_cfg.ini \
+        $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
+
 endif
