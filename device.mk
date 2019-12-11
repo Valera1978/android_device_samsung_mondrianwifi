@@ -97,6 +97,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libsecnativefeature
 
+PRODUCT_PACKAGES += \
+    libshim_binder
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
