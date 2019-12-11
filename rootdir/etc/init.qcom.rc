@@ -924,6 +924,11 @@ service wcnss-service /vendor/bin/wcnss_service
     group system wifi qcom_diag radio
     oneshot
 
+service netmgrd /vendor/bin/netmgrd
+    class core
+    user root
+    group root wifi wakelock radio inet
+
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 \
     -g@android:wpa_wlan0
