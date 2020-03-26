@@ -19,12 +19,17 @@ Copyright (C) 2019 Valera Chigir <valera1978@tut.by>
 
   - Make a workspace
 
-mkdir cm16
-cd cm16
+mkdir -p ~/bin
+mkdir -p ~/android/system
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+chmod a+x ~/bin/repo
+
+cd ~/android/system
+
 
   - Do repo init & sync
 
-repo init -u git://github.com/LineageOS/android.git -b cm-16.0
+repo init -u git://github.com/LineageOS/android.git -b lineage-17.1
 
   - Create .repo/local_manifests/roomservice.xml with the following content:
 
@@ -32,9 +37,9 @@ repo init -u git://github.com/LineageOS/android.git -b cm-16.0
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <project name="Valera1978/android_device_samsung_mondrianwifi" path="device/samsung/mondrianwifi" remote="github" />
-  <project name="Valera1978/android_kernel_samsung_msm8974" path="kernel/samsung/msm8974_tab" remote="github" revision="lineage-16.0_pro" />
+  <project name="Valera1978/android_kernel_samsung_msm8974" path="kernel/samsung/msm8974_tab" remote="github" revision="lineage-17.1_pro" />
   <project name="Valera1978/android_vendor_samsung_mondrianwifi" path="vendor/samsung/mondrianwifi" remote="github" />
-  <project name="LineageOS/android_device_samsung_msm8974-common" path="device/samsung/msm8974-common" remote="github" />
+  <project name="LineageOS/android_device_samsung_msm8974-common" path="device/samsung/msm8974-common" remote="github" revision="lineage-16.0" />
   <project name="LineageOS/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" />
   <project name="Valera1978/android_hardware_samsung" path="hardware/samsung" remote="github" />
 </manifest>
@@ -51,12 +56,14 @@ repo sync
   Or if you have the system image unpacked on your disk, then simply run:
 
     STOCK_ROM_DIR=/path/to/system ./extract-files.sh
+    
+ Or add the muppet repository for proprietary_vendor_samsung to your roomservice.xml:    
 
   - Setup environment
 
-. build/envsetup.sh
+source build/envsetup.sh
+breakfast mondrianwifi
 
-  - Build cm16
 
 brunch mondrianwifi
 
