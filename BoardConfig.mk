@@ -57,7 +57,7 @@ TARGET_KERNEL_CONFIG := lineage_mondrian_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8974_tab
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_msm8974
+TARGET_INIT_VENDOR_LIB := libinit_mondrianwifi
 
 # Legacy BLOB Support
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
