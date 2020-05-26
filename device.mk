@@ -105,7 +105,6 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
-    android.hardware.bluetooth@1.0-service \
     libbt-vendor
 
 # Display
@@ -113,9 +112,8 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
     copybit.msm8974 \
     gralloc.msm8974 \
     hwcomposer.msm8974 \
@@ -179,14 +177,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/sec_touchscreen.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/sec_touchscreen.kl \
     $(LOCAL_PATH)/keylayout/ue_rf4ce_remote.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/ue_rf4ce_remote.kl
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.samsung
-
-# Keymaster
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
@@ -278,7 +275,7 @@ PRODUCT_COPY_FILES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-service.lineage
+    android.hardware.vibrator@1.0-impl
 
 # Vendor properties
 -include $(LOCAL_PATH)/system_prop.mk

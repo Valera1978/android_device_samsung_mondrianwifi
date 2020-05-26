@@ -30,6 +30,7 @@ TARGET_NO_RADIOIMAGE := true
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8974
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno330
 
 # Architecture
 TARGET_ARCH := arm
@@ -104,9 +105,6 @@ TARGET_USERIMAGES_USE_EXT4         := true
 TARGET_USERIMAGES_USE_F2FS         := true
 BOARD_CACHEIMAGE_PARTITION_SIZE    := 209715200
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE  := ext4
-
-# Extended Filesystem Support
-TARGET_EXFAT_DRIVER := sdfat
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(LOCAL_PATH)/config.fs
@@ -184,6 +182,11 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 
 # SELinux
 include $(LOCAL_PATH)/sepolicy/sepolicy.mk
+
+SELINUX_IGNORE_NEVERALLOWS := true
+
+# Sensors
+TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
