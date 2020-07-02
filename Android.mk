@@ -70,29 +70,29 @@ $(MBA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(MBA_SYMLINKS)
 
-#DXPRDY_IMAGES := \
-#    dxprdy.b00 dxprdy.b01 dxprdy.b02 dxprdy.b03 dxprdy.mdt
+DXPRDY_IMAGES := \
+    dxprdy.b00 dxprdy.b01 dxprdy.b02 dxprdy.b03 dxprdy.mdt
 
-#DXPRDY_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(DXPRDY_IMAGES)))
-#$(DXPRDY_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-#	@echo "DXPRDY firmware link: $@"
-#	@mkdir -p $(dir $@)
-#	@rm -rf $@
-#	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+DXPRDY_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(DXPRDY_IMAGES)))
+$(DXPRDY_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "DXPRDY firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-#ALL_DEFAULT_INSTALLED_MODULES += $(DXPRDY_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(DXPRDY_SYMLINKS)
 
-#MLDAP_IMAGES := \
-#    mldap.b00 mldap.b01 mldap.b02 mldap.b03 mldap.mdt
+MLDAP_IMAGES := \
+    mldap.b00 mldap.b01 mldap.b02 mldap.b03 mldap.mdt
 
-#MLDAP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(MLDAP_IMAGES)))
-#$(MLDAP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-#	@echo "MLDAP firmware link: $@"
-#	@mkdir -p $(dir $@)
-#	@rm -rf $@
-#	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+MLDAP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(MLDAP_IMAGES)))
+$(MLDAP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "MLDAP firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-#ALL_DEFAULT_INSTALLED_MODULES += $(MLDAP_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(MLDAP_SYMLINKS)
 
 MC_IMAGES := \
     mc_v2.b00 mc_v2.b01 mc_v2.b02 mc_v2.b03 mc_v2.mdt
@@ -148,17 +148,17 @@ ALL_DEFAULT_INSTALLED_MODULES += $(ACTLOCK_SYMLINKS)
 TKM_IMAGES := \
     t2_ks_mi.b00 t2_ks_mi.b01 t2_ks_mi.b02 t2_ks_mi.b03 t2_ks_mi.mdt
 
-#TKM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(TKM_IMAGES)))
-#$(TKM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-#	@echo "TKM firmware link: $@"
-#	@mkdir -p $(dir $@)
-#	@rm -rf $@
-#	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+TKM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(TKM_IMAGES)))
+$(TKM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "TKM firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-#ALL_DEFAULT_INSTALLED_MODULES += $(TKM_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(TKM_SYMLINKS)
 
-#PLAYREADY_IMAGES := \
-#    playread.b00 playread.b01 playread.b02 playread.b03 playread.mdt
+PLAYREADY_IMAGES := \
+    playread.b00 playread.b01 playread.b02 playread.b03 playread.mdt
 
 PLAYREADY_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(PLAYREADY_IMAGES)))
 $(PLAYREADY_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -244,15 +244,15 @@ $(TZPR_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(TZPR_SYMLINKS)
 
-#TZ_CCM_IMAGES := \
-#    tz_ccm.b00 tz_ccm.b01 tz_ccm.b02 tz_ccm.b03 tz_ccm.mdt
+TZ_CCM_IMAGES := \
+    tz_ccm.b00 tz_ccm.b01 tz_ccm.b02 tz_ccm.b03 tz_ccm.mdt
 
-#TZ_CCM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(TZ_CCM_IMAGES)))
-#$(TZ_CCM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-#	@echo "TZ_CCM firmware link: $@"
-#	@mkdir -p $(dir $@)
-#	@rm -rf $@
-#	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+TZ_CCM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(TZ_CCM_IMAGES)))
+$(TZ_CCM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "TZ_CCM firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(TZ_CCM_SYMLINKS)
 
@@ -284,27 +284,27 @@ ALL_DEFAULT_INSTALLED_MODULES += $(WV_SYMLINKS)
 ISDBT_IMAGES := \
     isdbtmm.b00 isdbtmm.b01 isdbtmm.b02 isdbtmm.b03 isdbtmm.mdt
 
-ISDBT_IMAGES := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(WV_IMAGES)))
-$(ISDBT_IMAGES): $(LOCAL_INSTALLED_MODULE)
+ISDBT_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(ISDBT_IMAGES)))
+$(ISDBT_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "isdbt firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(ISDBT_IMAGES)
+ALL_DEFAULT_INSTALLED_MODULES += $(ISDBT_SYMLINKS)
 
 WCNSS_IMAGES := \
     wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b04 wcnss.b06 \
     wcnss.b07 wcnss.b08 wcnss.b09 wcnss.mdt
 
-WCNSS_IMAGES := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(WV_IMAGES)))
-$(WCNSS_IMAGES): $(LOCAL_INSTALLED_MODULE)
+WCNSS_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(WCNSS_IMAGES)))
+$(WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "wcnss firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_IMAGES)
+ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_SYMLINKS)
 
 # Create links for audcal data files
 $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wcd9320; \
