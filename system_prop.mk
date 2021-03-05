@@ -8,8 +8,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-swap=false
 
 # Low memory
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.low_ram=true
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.config.low_ram=true
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -48,7 +48,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Limit dex2oat threads to improve thermals
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-threads=2 \
-    dalvik.vm.image-dex2oat-threads=4
+    dalvik.vm.image-dex2oat-threads=2
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
