@@ -19,12 +19,12 @@ Copyright (C) 2019 Valera Chigir <valera1978@tut.by>
 
   - Make a workspace
 
-mkdir cm17
-cd cm17
+    * `mkdir cm17`
+    * `cd cm17`
 
   - Do repo init & sync
 
-repo init -u git://github.com/LineageOS/android.git -b lineage-17.1
+    * `repo init -u git://github.com/LineageOS/android.git -b lineage-17.1`
 
   - Create .repo/local_manifests/roomservice.xml with the following content:
 
@@ -39,13 +39,13 @@ repo init -u git://github.com/LineageOS/android.git -b lineage-17.1
 </manifest>
 ```
 
-repo sync
+  - `repo sync`
 
   - Copy proprietary vendor files
 
   There are two options to to that. Connect your device with adb enabled and run:
 
-./extract-files.sh
+  *  `./extract-files.sh`
 
   Or if you have the system image unpacked on your disk, then simply run:
 
@@ -53,14 +53,16 @@ repo sync
 
   - Setup environment
 
-. build/envsetup.sh
+    * `. build/envsetup.sh`
 
   - Build cm17
 
-brunch mondrianwifi
+    * `brunch mondrianwifi`
 
 or another way:
 
+```
 lunch lineage_mondrianwifi-userdebug
 export USE_CCACHE=1
 make -j16 bacon
+```
